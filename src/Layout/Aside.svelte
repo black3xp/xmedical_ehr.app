@@ -6,13 +6,8 @@
   <aside class="admin-sidebar">
     <div class="admin-sidebar-brand">
       <!-- begin sidebar branding-->
-      <img
-        class="admin-brand-logo"
-        src="assets/img/logo.svg"
-        width="40"
-        alt="atmos Logo" />
       <span class="admin-brand-content">
-        <a href="/" use:link>atmos</a>
+        <a href="/" use:link>xmedical</a>
       </span>
       <!-- end sidebar branding-->
       <div class="ml-auto">
@@ -37,11 +32,22 @@
             </span>
             <span class="menu-icon">
               <span class="icon-badge badge-success badge badge-pill">1</span>
-  
-              <i class="icon-placeholder mdi mdi-link-variant " />
+              <i class="icon-placeholder mdi mdi-view-dashboard"></i>
             </span>
           </a>
-  
+        </li>
+        <!--list item ends-->
+
+        <!--list item begins-->
+        <li use:active={{path: '/Paciente/Index', className: 'active'}} class="menu-item">
+          <a href="/Paciente/Index" use:link class="menu-link">
+            <span class="menu-label">
+              <span class="menu-name">Paciente</span>
+            </span>
+            <span class="menu-icon">
+              <i class="icon-placeholder mdi mdi-account-circle-outline"></i>
+            </span>
+          </a>
         </li>
         <!--list item ends-->
   

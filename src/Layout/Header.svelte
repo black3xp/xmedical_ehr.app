@@ -7,7 +7,7 @@
       <!--  -->
     </a>
   
-    <nav class=" mr-auto my-auto">
+    <!-- <nav class=" mr-auto my-auto">
       <ul class="nav align-items-center">
   
         <li class="nav-item">
@@ -20,7 +20,7 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <nav class=" ml-auto">
       <ul class="nav align-items-center">
   
