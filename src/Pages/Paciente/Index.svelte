@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/Paciente/Nuevo" use:link type="button" class="btn  m-b-30 ml-2 mr-2 ml-3 btn-primary"><i class="mdi mdi-account-plus"></i> Nuevo paciente
+                    <a href="/Paciente/Editar" use:link type="button" class="btn  m-b-30 ml-2 mr-2 ml-3 btn-primary"><i class="mdi mdi-account-plus"></i> Nuevo paciente
                     </a>
                 </div>
             </div>
