@@ -38,24 +38,13 @@
         </li>
         <!--list item ends-->
 
-        <!--list item begins-->
-        <li use:active={{path: '/Paciente/Index', className: 'active'}} class="menu-item">
-          <a href="/Paciente/Index" use:link class="menu-link">
-            <span class="menu-label">
-              <span class="menu-name">Atenciones</span>
-            </span>
-            <span class="menu-icon">
-              <i class="icon-placeholder mdi mdi-account-circle-outline"></i>
-            </span>
-          </a>
-        </li>
-        <!--list item ends-->
+
 
         <!--list item begins-->
-        <li use:active={{path: '/Home/Interconsultas', className: 'active'}} class="menu-item">
-          <a href="/Home/Interconsultas" use:link class="menu-link">
+        <li use:active={{path: '/Usuario/Index', className: 'active'}} class="menu-item">
+          <a href="/Usuario/Index" use:link class="menu-link">
             <span class="menu-label">
-              <span class="menu-name">Interconsultas</span>
+              <span class="menu-name">Usuarios</span>
             </span>
             <span class="menu-icon">
               <i class="icon-placeholder mdi-24px mdi mdi-clipboard-flow"></i>
@@ -63,6 +52,7 @@
           </a>
         </li>
         <!--list item ends-->
+  
       </ul>
       <!-- Menu List Ends-->
     </div>
