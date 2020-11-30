@@ -354,3 +354,26 @@ pre{
     border: 1.5px solid #6772e5;
     font-weight: 500;
 }
+
+.menu .icono{
+    width: 20%;
+    float: left;
+    text-align: center;
+    padding: 0;
+  }
+  .menu .icono i{
+    font-size: 2rem;
+  }
+  .menu .info-menu {
+    width: 80%;
+    float: left;
+  }
+  .menu p{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .menu small{
+    font-size: 0.8rem;
+  }

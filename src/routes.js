@@ -4,13 +4,15 @@ import PerfilPaciente from './Pages/Paciente/Perfil.svelte'
 import EditarPaciente from './Pages/Paciente/Editar.svelte'
 import Interconsultas from './Pages/Home/Interconsultas.svelte'
 import IndexUsuario from './Pages/Usuario/Index.svelte'
+import Error404 from './Pages/Home/Error404.svelte'
 const routes = {
     "/": Index,
     "/Paciente/Index": IndexPaciente,
     "/Paciente/Perfil": PerfilPaciente,
     "/Paciente/Editar": EditarPaciente,
     "/Home/Interconsultas": Interconsultas,
-    "/Usuario/Index": IndexUsuario
+    "/Usuario/Index": IndexUsuario,
+    "*": Error404
 }
 
 export default routes;

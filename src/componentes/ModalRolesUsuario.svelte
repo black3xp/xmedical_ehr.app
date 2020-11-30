@@ -12,10 +12,10 @@
 
                     <form id="">
                         <input type="hidden" name="idPaciente" value="">
-                        <p><span class="badge badge-soft-primary" style="font-size: 17px;" data-bind="text: usuario.name">-user name-</span>
+                        <p><span class="badge badge-soft-primary" style="font-size: 17px;">-user name-</span>
                         </p>
                         <div class="form-group floating-label">
-                            <label id="input">Buscar</label>
+                            <label for="">Buscar</label>
                             <input type="text" class="form-control" placeholder="Buscar roles">
                         </div>
                         <div class="roles">
@@ -23,7 +23,7 @@
                             <div class="lista-rol m-b-10">
                                 <label class="cstm-switch d-flex bd-highlight">
                                     <span class="cstm-switch-description mr-auto bd-highlight"
-                                        data-bind="text: name">Administrador <a href="#!" data-toggle="popover"
+                                        >Administrador <a href="#!" data-toggle="popover"
                                             title="Informacion Administrador" data-trigger="focus"
                                             data-placement="bottom"
                                             data-content="And here's some amazing content. It's very engaging. Right?"
