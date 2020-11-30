@@ -11,7 +11,7 @@
     nombre: 'Administracion',
     icono: 'mdi mdi-settings',
     url: '/Usuario/Index',
-    descripcion: 'Todos los pacientes registrados'
+    descripcion: 'Configuracion de las diferentes opciones'
   }]
   onMount(() => {
 

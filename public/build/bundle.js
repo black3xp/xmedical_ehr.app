@@ -1800,15 +1800,15 @@ var app = (function () {
     			div0 = element("div");
     			create_component(opcionesmenu.$$.fragment);
     			attr_dev(h1, "class", "text-center");
-    			add_location(h1, file$1, 20, 2, 564);
+    			add_location(h1, file$1, 20, 2, 573);
     			attr_dev(div0, "class", "row");
-    			add_location(div0, file$1, 23, 6, 653);
+    			add_location(div0, file$1, 23, 6, 662);
     			attr_dev(div1, "class", "col-12");
-    			add_location(div1, file$1, 22, 4, 625);
+    			add_location(div1, file$1, 22, 4, 634);
     			attr_dev(div2, "class", "row");
-    			add_location(div2, file$1, 21, 2, 602);
+    			add_location(div2, file$1, 21, 2, 611);
     			attr_dev(div3, "class", "menu mt-5 svelte-1tw44i");
-    			add_location(div3, file$1, 19, 0, 537);
+    			add_location(div3, file$1, 19, 0, 546);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1865,7 +1865,7 @@ var app = (function () {
     			nombre: "Administracion",
     			icono: "mdi mdi-settings",
     			url: "/Usuario/Index",
-    			descripcion: "Todos los pacientes registrados"
+    			descripcion: "Configuracion de las diferentes opciones"
     		}
     	];
 
