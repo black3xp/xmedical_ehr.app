@@ -3,14 +3,19 @@
   import OpcionesMenu from '../../componentes/OpcionMenu.svelte'
   //import '../../../node_modules/hover.css/css/hover.css'
   let opciones = [{
-    nombre: 'Atenciones',
+    nombre: 'Atencion medica',
     icono: 'mdi mdi-folder-account',
-    url: '/Paciente/Index',
-    descripcion: 'Atenciones del area de emergencias'
+    url: '/AtencionMedica/Atenciones',
+    descripcion: 'Hospitalizaciones, Emergencias, etc.'
   },{
     nombre: 'Administracion',
     icono: 'mdi mdi-settings',
     url: '/Usuario/Index',
+    descripcion: 'Configuracion de las diferentes opciones'
+  },{
+    nombre: 'Pacientes',
+    icono: 'mdi mdi-account-circle-outline',
+    url: '/Paciente/Index',
     descripcion: 'Configuracion de las diferentes opciones'
   }]
   onMount(() => {

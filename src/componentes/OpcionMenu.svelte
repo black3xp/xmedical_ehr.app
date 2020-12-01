@@ -9,7 +9,7 @@
 </script>
 
 {#each opciones as opcion}
-    <div class="col-lg-3 p-3 hvr-underline-from-left">
+    <div class="col-md-4 col-lg-3 p-3 hvr-underline-from-left">
         <a href={opcion.url} use:link style="display:block">
         <div class="icono">
             <i class={opcion.icono}></i>

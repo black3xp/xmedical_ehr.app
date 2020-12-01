@@ -2,7 +2,8 @@ import Index from './Pages/Home/Index.svelte'
 import IndexPaciente from './Pages/Paciente/Index.svelte'
 import PerfilPaciente from './Pages/Paciente/Perfil.svelte'
 import EditarPaciente from './Pages/Paciente/Editar.svelte'
-import Interconsultas from './Pages/Home/Interconsultas.svelte'
+import Interconsultas from './Pages/AtencionMedica/Interconsultas.svelte'
+import Atenciones from './Pages/AtencionMedica/Atenciones.svelte'
 import IndexUsuario from './Pages/Usuario/Index.svelte'
 import Error404 from './Pages/Home/Error404.svelte'
 const routes = {
@@ -10,7 +11,8 @@ const routes = {
     "/Paciente/Index": IndexPaciente,
     "/Paciente/Perfil": PerfilPaciente,
     "/Paciente/Editar": EditarPaciente,
-    "/Home/Interconsultas": Interconsultas,
+    "/AtencionMedica/Interconsultas": Interconsultas,
+    "/AtencionMedica/Atenciones": Atenciones,
     "/Usuario/Index": IndexUsuario,
     "*": Error404
 }

@@ -1,6 +1,8 @@
 <script>
     import Header from "../../Layout/Header.svelte";
     import Aside from "../../Layout/Aside.svelte";
+    import ModalDatosPaciente from '../../componentes/ModalDatosPaciente.svelte'
+    import ModalNuevaAtencion from '../../componentes/ModalNuevaAtencion.svelte'
 </script>
 
 <Aside />
@@ -462,3 +464,6 @@
     <!--.pull-on-->
 </section>
 </main>
+
+<ModalDatosPaciente />
+<ModalNuevaAtencion />
