@@ -7,7 +7,6 @@
 <main class="admin-main">
   <Header />
     <section class="admin-content p-2">
-        <div class="row">
 
             <div class="mt-4 col-md-12" data-bind="using: filtro">
                 <div class="row">
@@ -129,6 +128,5 @@
                 </div>
             </div>
     
-        </div>
     </section>
 </main>
