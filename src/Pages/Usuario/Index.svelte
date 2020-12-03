@@ -1,7 +1,6 @@
 <script>
     import Header from "../../Layout/Header.svelte";
     import AsideAdministracion from "../../Layout/AsideAdministracion.svelte";
-    import { link } from "svelte-spa-router";
     import ModalCrearUsuarios from '../../componentes/ModalCrearUsuarios.svelte'
     import ModalRolesUsuario from '../../componentes/ModalRolesUsuario.svelte'
 </script>
@@ -27,8 +26,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/" data-target="#modalUsuario" data-toggle="modal" use:link type="button" class="btn  m-b-30 ml-2 mr-2 ml-3 btn-primary"><i class="mdi mdi-account-plus"></i> Nuevo usuario
-                    </a>
+                    <button data-target="#modalUsuario" data-toggle="modal" type="button" class="btn  m-b-30 ml-2 mr-2 ml-3 btn-primary"><i class="mdi mdi-account-plus"></i> Nuevo usuario
+                    </button>
                 </div>
             </div>
             <div class="col-md-12 m-b-30">

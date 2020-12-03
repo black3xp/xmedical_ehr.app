@@ -38,31 +38,19 @@
         </li>
         <!--list item ends-->
 
-                <!--list item begins-->
-                <li use:active={{path: '/AtencionMedica/Atenciones', className: 'active'}} class="menu-item">
-                  <a href="/AtencionMedica/Atenciones" use:link class="menu-link">
-                    <span class="menu-label">
-                      <span class="menu-name">Atenciones</span>
-                    </span>
-                    <span class="menu-icon">
-                      <i class="icon-placeholder mdi-24px mdi mdi-clipboard-flow"></i>
-                    </span>
-                  </a>
-                </li>
-                <!--list item ends-->
-
         <!--list item begins-->
-        <li use:active={{path: '/AtencionMedica/Interconsultas', className: 'active'}} class="menu-item">
-          <a href="/AtencionMedica/Interconsultas" use:link class="menu-link">
+        <li use:active={{path: '/Paciente/Index', className: 'active'}} class="menu-item">
+            <a href="/Paciente/Index" use:link class="menu-link">
             <span class="menu-label">
-              <span class="menu-name">Interconsultas</span>
+                <span class="menu-name">Pacientes</span>
             </span>
             <span class="menu-icon">
-              <i class="icon-placeholder mdi-24px mdi mdi-clipboard-flow"></i>
+                <i class="icon-placeholder mdi-24px mdi mdi-account-circle-outline"></i>
             </span>
-          </a>
+            </a>
         </li>
         <!--list item ends-->
+
       </ul>
       <!-- Menu List Ends-->
     </div>

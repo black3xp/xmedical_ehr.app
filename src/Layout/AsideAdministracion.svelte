@@ -28,11 +28,11 @@
         <li use:active={{path: '/', className: 'active'}} class="menu-item">
           <a href="/" use:link class="menu-link">
             <span class="menu-label">
-              <span class="menu-name">Escritorio</span>
+              <span class="menu-name">IR A INICIO</span>
             </span>
             <span class="menu-icon">
               <span class="icon-badge badge-success badge badge-pill">1</span>
-              <i class="icon-placeholder mdi mdi-view-dashboard"></i>
+              <i class="icon-placeholder mdi-24px mdi mdi-home"></i>
             </span>
           </a>
         </li>

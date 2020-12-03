@@ -6,10 +6,10 @@
 
 <main class="admin-main">
   <Header />
-    <section class="admin-content p-2">
-
-            <div class="mt-4 col-md-12" data-bind="using: filtro">
-                <div class="row">
+    <section class="admin-content">
+        <div class="mt-4 col-md-12" data-bind="using: filtro">
+            <h4 class="mt-2">Atenciones</h4>
+            <div class="row">
                     <div class="input-group col-md-3">
                         <select class="custom-select" title="Tipo de Atención" data-bind="options: $parent.tiposAtencion, 
                             optionsValue: 'id', 

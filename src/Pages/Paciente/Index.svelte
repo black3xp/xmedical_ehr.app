@@ -1,10 +1,10 @@
 <script>
     import Header from "../../Layout/Header.svelte";
-    import Aside from "../../Layout/Aside.svelte";
+    import AsidePaciente from "../../Layout/AsidePacientes.svelte";
     import { link } from "svelte-spa-router";
 </script>
 
-<Aside />
+<AsidePaciente />
 
 <main class="admin-main">
   <Header />

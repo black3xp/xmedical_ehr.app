@@ -1,9 +1,9 @@
 <script>
     import Header from "../../Layout/Header.svelte";
-    import Aside from "../../Layout/Aside.svelte";
+    import AsidePacientes from "../../Layout/AsidePacientes.svelte";
 </script>
 
-<Aside />
+<AsidePacientes />
 
 <main class="admin-main">
   <Header />

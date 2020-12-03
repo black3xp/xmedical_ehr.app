@@ -1,11 +1,12 @@
 <script>
+        import { link } from "svelte-spa-router";
     import Header from "../../Layout/Header.svelte";
-    import Aside from "../../Layout/Aside.svelte";
+    import AsidePacientes from "../../Layout/AsidePacientes.svelte";
     import ModalDatosPaciente from '../../componentes/ModalDatosPaciente.svelte'
     import ModalNuevaAtencion from '../../componentes/ModalNuevaAtencion.svelte'
 </script>
 
-<Aside />
+<AsidePacientes />
 
 <main class="admin-main">
   <Header />
@@ -446,7 +447,7 @@
                                         <div>Atención Ambulatoria</div>
                                     </div>
                                 </div>
-                                <a class="close" data-toggle="tooltip" data-placement="top" data-original-title="Ir" href="/AtencionMedica/Trabajar/1#resumen-page">
+                                <a use:link class="close" data-toggle="tooltip" data-placement="top" data-original-title="Ir" href="/AtencionMedica/Resumen">
                                     <i class="mdi mdi-open-in-new"></i>
                                 </a>
                             </div>
