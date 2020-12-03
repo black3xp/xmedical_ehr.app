@@ -77,6 +77,20 @@
         </li>
         <!--list item ends-->
 
+        <!--list item begins-->
+        <li use:active={{path: '/AtencionMedica/NotasMedicas', className: 'active'}} class="menu-item">
+            <a href="/AtencionMedica/NotasMedicas" use:link class="menu-link">
+            <span class="menu-label">
+                <span class="menu-name">Notas médicas</span>
+                <span class="menu-info">Ingreso y Evoluciones</span>
+            </span>
+            <span class="menu-icon">
+                <i class="icon-placeholder mdi-24px mdi mdi-format-list-bulleted-type"></i>
+            </span>
+            </a>
+        </li>
+        <!--list item ends-->
+
       </ul>
       <!-- Menu List Ends-->
     </div>

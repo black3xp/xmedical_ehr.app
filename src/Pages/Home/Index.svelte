@@ -8,14 +8,19 @@
     url: '/AtencionMedica/Atenciones',
     descripcion: 'Hospitalizaciones, Emergencias, etc.'
   },{
-    nombre: 'Administracion',
-    icono: 'mdi mdi-settings',
-    url: '/Usuario/Index',
-    descripcion: 'Configuracion de las diferentes opciones'
-  },{
     nombre: 'Pacientes',
     icono: 'mdi mdi-account-circle-outline',
     url: '/Paciente/Index',
+    descripcion: 'Configuracion de las diferentes opciones'
+  },{
+    nombre: 'Enfermería',
+    icono: 'mdi mdi-doctor',
+    url: '/Paciente/Index',
+    descripcion: 'Aplicaciones, Signos vitales, etc.'
+  },{
+    nombre: 'Administracion',
+    icono: 'mdi mdi-settings',
+    url: '/Usuario/Index',
     descripcion: 'Configuracion de las diferentes opciones'
   }]
   onMount(() => {

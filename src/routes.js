@@ -6,6 +6,7 @@ import Interconsultas from './Pages/AtencionMedica/Interconsultas.svelte'
 import AtencionResumen from './Pages/AtencionMedica/Resumen.svelte'
 import EditarAtencion from './Pages/AtencionMedica/EditarDatosAtencion.svelte'
 import ResumenAtencion from './Pages/AtencionMedica/HistoriaClinica.svelte'
+import NotasAtencion from './Pages/AtencionMedica/NotasMedicas.svelte'
 import Atenciones from './Pages/AtencionMedica/Atenciones.svelte'
 import IndexUsuario from './Pages/Usuario/Index.svelte'
 import Error404 from './Pages/Home/Error404.svelte'
@@ -20,6 +21,7 @@ const routes = {
     "/AtencionMedica/Resumen": AtencionResumen,
     "/AtencionMedica/EditarDatosAtencion": EditarAtencion,
     "/AtencionMedica/HistoriaClinica": ResumenAtencion,
+    "/AtencionMedica/NotasMedicas": NotasAtencion,
     "*": Error404
 }
 
