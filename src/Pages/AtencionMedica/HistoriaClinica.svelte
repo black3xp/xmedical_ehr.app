@@ -95,8 +95,145 @@
                         <textarea class="form-control" data-bind="value: notaMedica.examenMental" style="width: 100%; display: block; height: 150px;" rows="3" name="Comentario"></textarea>
                     </div>
                 </div>
-                <h2>Signos vitales faltan</h2>
-                <hr>
+                
+                <div class="card m-b-20 margen-mobile autosave">
+                    <div class="card-header">
+                        <div class="card-title">Signos vitales</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-thermometer mdi-18px"></i> Temperatura</label>
+                                    <div class="row">
+                                        <div class="col-lg-7">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <select class="form-control">
+                                                <option value="°C">°C</option>
+                                                <option value="°K">°K</option>
+                                                <option value="°F">°F</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-chart-line mdi-18px"></i> Frecuencia respiratoria</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-heart-pulse mdi-18px"></i> Frecuencia cardiaca</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-heart-pulse mdi-18px"></i> Presion alterial (mmHg)</label>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card m-b-20 margen-mobile autosave">
+                    <div class="card-header">
+                        <div class="card-title">Otros parametros</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-weight-pound"></i> Peso</label>
+                                    <div class="row">
+                                        <div class="col-lg-7">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <select class="form-control">
+                                                <option value="°C">Lb</option>
+                                                <option value="°K">Kg</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-human"></i> Escala de glasgow</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="input-group" style="width: 100% !important; float: right;">
+                                                <input type="number" class="form-control" max="15" maxlength="2" data-bind="value: notaMedica.escalaGlasgow" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="basic-addon2">/ 15</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-emoticon-happy"></i> Escala de dolor</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="input-group" style="width: 100% !important; float: right;">
+                                                <input type="number" class="form-control" max="10" maxlength="2" data-bind="value: notaMedica.escalaGlasgow" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="basic-addon2">/ 10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for=""><i class="mdi mdi-opacity"></i> Saturaci&oacute;n de oxigeno</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="">Otros</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
                 <div data-bind="if: perfil().examenFisico" class="card m-b-20 autosave">
                     <div class="card-header">
                         <div class="card-title">Examen Fisico</div>
