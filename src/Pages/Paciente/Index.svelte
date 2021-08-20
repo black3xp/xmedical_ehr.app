@@ -1,7 +1,33 @@
 <script>
     import Header from "../../Layout/Header.svelte";
     import AsidePaciente from "../../Layout/AsidePacientes.svelte";
+    import axios from 'axios';
     import { link } from "svelte-spa-router";
+    import {url, calcularEdad} from '../../utils';
+    import { onMount } from "svelte";
+
+    let pacientes = [];
+
+    const cargarPacientes = () => {
+        const config = {
+            method: 'get',
+            url: `${url}/pacientes`,
+            header: {
+
+            }
+        }
+        axios(config)
+            .then(res => {
+                pacientes = res.data
+                console.log(pacientes)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+    onMount(() => {
+        cargarPacientes();
+    })
 </script>
 
 <AsidePaciente />
@@ -35,34 +61,38 @@
                         <thead>
                             <tr>
                                 <th>Nombres</th>
+                                <th>Cedula</th>
                                 <th>Edad</th>
                                 <th>Sexo</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: pacientes">
-                            <tr>
-                                <td>
-                                    <div class="avatar avatar-sm mr-2 d-block-sm">
-                                        <div class="avatar avatar-sm">
-                                            <span class="avatar-title rounded-circle ">FD</span>
-                                        </div>
-    
-                                    </div> <span>Fiordaliza De Jesus</span>
-                                </td>
-                                <td>49 años</td>
-                                <td>Femenino</td>
-    
-                                <td style="text-align: right;">
-                                    <div style="width: 200px;" class="ml-auto">
-                                        <a href="/Paciente/Editar" use:link data-toggle="tooltip" data-placement="top" data-original-title="Modificar paciente" class="icon-table"><i class="mdi-24px mdi mdi-circle-edit-outline"></i></a>
-    
-                                        <a href="/Paciente/Perfil" use:link data-toggle="tooltip" data-placement="top" data-original-title="Ver perfil" class="icon-table">
-                                            <i class="mdi-24px mdi mdi-account-card-details"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            {#each pacientes as paciente}
+                                 <tr>
+                                     <td>
+                                         <div class="avatar avatar-sm mr-2 d-block-sm">
+                                             <div class="avatar avatar-sm">
+                                                 <span class="avatar-title rounded-circle ">FD</span>
+                                             </div>
+         
+                                         </div> <span>{paciente.nombres} {paciente.primerApellido} {paciente.segundoApellido}</span>
+                                     </td>
+                                     <td>{paciente.cedula}</td>
+                                     <td>{calcularEdad(paciente.fechaNacimiento)} años</td>
+                                     <td>{paciente.sexo == 'M' ? 'Masculino' : 'Femenino'}</td>
+         
+                                     <td style="text-align: right;">
+                                         <div style="width: 200px;" class="ml-auto">
+                                             <a href="/Paciente/Editar" use:link data-toggle="tooltip" data-placement="top" data-original-title="Modificar paciente" class="icon-table"><i class="mdi-24px mdi mdi-circle-edit-outline"></i></a>
+         
+                                             <a href={`/paciente/perfil/${paciente.id}`} use:link data-toggle="tooltip" data-placement="top" data-original-title="Ver perfil" class="icon-table">
+                                                 <i class="mdi-24px mdi mdi-account-card-details"></i>
+                                             </a>
+                                         </div>
+                                     </td>
+                                 </tr>
+                            {/each}
                         </tbody>
                     </table>
     

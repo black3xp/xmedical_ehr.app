@@ -1,9 +1,58 @@
 <script>
-        import { link } from "svelte-spa-router";
+    import { link } from "svelte-spa-router";
+    import { onMount } from "svelte";
+    import {url, calcularEdad} from '../../utils';
+
+    import axios from 'axios';
     import Header from "../../Layout/Header.svelte";
     import AsidePacientes from "../../Layout/AsidePacientes.svelte";
-    import ModalDatosPaciente from '../../componentes/ModalDatosPaciente.svelte'
-    import ModalNuevaAtencion from '../../componentes/ModalNuevaAtencion.svelte'
+    import ModalDatosPaciente from '../../componentes/ModalDatosPaciente.svelte';
+    import ModalNuevaAtencion from '../../componentes/ModalNuevaAtencion.svelte';
+
+    export let params;
+
+    let paciente = {};
+    let abreviacionNombre = '';
+
+    const cargarPaciente = () => {
+        const config = {
+            method: 'get',
+            url: `${url}/pacientes/${params.id}`,
+            header: {
+
+            }
+        }
+        axios(config)
+            .then(res => {
+                paciente = res.data
+                console.log(paciente)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+
+    const cargarHistoriasPaciente = () => {
+        const config = {
+            method: 'get',
+            url: `${url}/atenciones/?Paciente=${params.id}`,
+            header: {
+
+            }
+        }
+        axios(config)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+
+    onMount(()=>{
+        cargarPaciente()
+        cargarHistoriasPaciente()
+    })
 </script>
 
 <AsidePacientes />
@@ -18,12 +67,12 @@
                     <div class="col-md-6 text-white p-b-30">
                         <div class="media">
                             <div class="avatar mr-3  avatar-xl">
-                                <span class="avatar-title rounded-circle">HL</span>
+                                <span class="avatar-title rounded-circle">{abreviacionNombre || '?'}</span>
                             </div>
                             <div class="media-body m-auto">
-                                <h5 class="mt-0"> <span>Fiordaliza De Jesus Herrera</span> <a href="#!" class="btn ml-2 btn-primary btn-sm" data-toggle="modal" data-target="#modalDatosPersonales"><i class="mdi mdi-comment-eye"></i> Ver
-                                        datos personales</a></h5>
-                                <div class="opacity-75"><span>49 años</span> | <span>05600180675</span> </div>
+                                <h5 class="mt-0"> <span>{paciente.nombres} {paciente.primerApellido} {paciente.segundoApellido}</span> <a href="#!" class="btn ml-2 btn-primary btn-sm" data-toggle="modal" data-target="#modalDatosPersonales"><i class="mdi mdi-comment-eye"></i> ver
+                                        datos</a></h5>
+                                <div class="opacity-75"><span>{calcularEdad(paciente.fechaNacimiento)} años</span> | <span>{paciente.cedula}</span> </div>
                             </div>
                         </div>
 
@@ -143,8 +192,6 @@
                             </p>
                         </div>
                         <div class="card-body">
-
-
                             <form class="dropzone dz-clickable" action="/">
                                 <div class="dz-message">
                                     <h1 class="display-4">

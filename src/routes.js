@@ -13,7 +13,7 @@ import Error404 from './Pages/Home/Error404.svelte'
 const routes = {
     "/": Index,
     "/Paciente/Index": IndexPaciente,
-    "/Paciente/Perfil": PerfilPaciente,
+    "/Paciente/Perfil/:id": PerfilPaciente,
     "/Paciente/Editar": EditarPaciente,
     "/AtencionMedica/Interconsultas": Interconsultas,
     "/AtencionMedica/Atenciones": Atenciones,
