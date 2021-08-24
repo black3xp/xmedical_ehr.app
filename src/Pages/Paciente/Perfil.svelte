@@ -16,6 +16,21 @@
     let tiposAtenciones = [];
     let tipoAtencionMedica = 'A';
 
+    const crearNuevaAtencion = () => {
+        const atencion = {
+            AseguradoraId: paciente.aseguradoraId,
+            CamaId: '345f61ab-259d-4259-ad6b-7583c2fe1dbf',
+            fechaIngreso: new Date().toISOString(),
+            PacienteId: paciente.id,
+
+        }
+        const config = {
+            method: 'post',
+            url: `${url}/atenciones`,
+        };
+
+    }
+
     const cargarTiposAtenciones = () => {
         const config = {
             method: 'get',
