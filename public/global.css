@@ -377,3 +377,12 @@ pre{
   .menu small{
     font-size: 0.8rem;
   }
+
+.select2-container--default .select2-selection--single{
+    height: 35px !important;
+
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    margin-top: 0;
+}

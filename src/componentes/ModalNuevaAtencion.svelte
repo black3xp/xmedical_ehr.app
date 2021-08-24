@@ -1,3 +1,11 @@
+<script>
+    export let tiposAtenciones;
+    export let tipoAtencionMedica = 'A';
+
+    const onChange = (event) => {
+        tipoAtencionMedica = event.currentTarget.value;
+    }
+</script>
 <div class="modal fade bd-example-modal-lg" tabindex="-1" id="modalNuevaAtencion" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -9,20 +17,26 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
                     <div class="modal-body">
                         <h6>Tipo de atenci&oacute;n</h6>
                         <div class="col-md-12">
                             <div class="row">
-                                <div class=" m-b-10 ml-2">
-                                    <label class="cstm-switch cursor-hover">
-                                        <input type="radio" checked name="TipoAtencion"
-                                            data-bind="checked: tipoAtencion" value="A" class="cstm-switch-input">
-                                        <span class="cstm-switch-indicator "></span>
-                                        <span class="cstm-switch-description">Ambulatoria </span>
-                                    </label>
-                                </div>
-
+                                {#each tiposAtenciones as tipoAtencion}
+                                     <div class=" m-b-10 ml-2">
+                                         <label class="cstm-switch cursor-hover">
+                                             <input type="radio"
+                                                checked={tipoAtencionMedica === tipoAtencion.id}
+                                                on:change={onChange} name="TipoAtencion"
+                                                group='TipoAtencion'
+                                                bind:value={tipoAtencion.id}
+                                                class="cstm-switch-input"
+                                            />
+                                             <span class="cstm-switch-indicator "></span>
+                                             <span class="cstm-switch-description">{tipoAtencion.descripcion} </span>
+                                         </label>
+                                     </div>
+                                {/each}
+<!-- 
                                 <div class=" m-b-10 ml-2">
                                     <label class="cstm-switch">
                                         <input type="radio" name="TipoAtencion" data-bind="checked: tipoAtencion"
@@ -38,7 +52,7 @@
                                         <span class="cstm-switch-indicator "></span>
                                         <span class="cstm-switch-description"> Hospitalizaci&oacute;n </span>
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>

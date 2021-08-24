@@ -13,6 +13,23 @@
 
     let paciente = {};
     let abreviacionNombre = '';
+    let tiposAtenciones = [];
+    let tipoAtencionMedica = 'A';
+
+    const cargarTiposAtenciones = () => {
+        const config = {
+            method: 'get',
+            url: `${url}/tipoatenciones`,
+        }
+        axios(config)
+            .then(res => {
+                tiposAtenciones = res.data;
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
 
     const cargarPaciente = () => {
         const config = {
@@ -52,6 +69,7 @@
     onMount(()=>{
         cargarPaciente()
         cargarHistoriasPaciente()
+        cargarTiposAtenciones()
     })
 </script>
 
@@ -514,4 +532,7 @@
 </main>
 
 <ModalDatosPaciente />
-<ModalNuevaAtencion />
+<ModalNuevaAtencion
+    {tiposAtenciones}
+    {tipoAtencionMedica}
+/>
