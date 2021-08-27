@@ -1,72 +1,71 @@
 <script>
     import { link } from "svelte-spa-router";
+    import { onMount } from "svelte";
+    import { url } from '../../utils';
+    import axios from 'axios';
     import Header from "../../Layout/Header.svelte";
     import AsideAtencion from "../../Layout/AsideAtencion.svelte";
     import ModalDatosPaciente from "../../componentes/ModalDatosPaciente.svelte";
     import ModalTratamientos from "../../componentes/ModalTratamientos.svelte";
     import ModalInterconsulta from "../../componentes/ModalInterconsulta.svelte";
     import ModalAntecedentes from "../../componentes/ModalAntecedentes.svelte";
-    import OrdenesMedicas from '../../componentes/OrdenesMedicas.svelte'
+    import OrdenesMedicas from '../../componentes/OrdenesMedicas.svelte';
+    import OpcionesPaciente from "../../componentes/OpcionesPaciente.svelte";
+
+    export let params;
+
+    let paciente = {};
+    let notaMedica = {}
+
+    const cargarNota = () => {
+        const config = {
+            method: 'get',
+            url: `${url}/notasmedicas/${params.idNota}`,
+            header: {
+
+            }
+        };
+        axios(config)
+            .then(res => {
+                notaMedica = res.data
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+
+    const cargarPaciente = () => {
+        const config = {
+            method: 'get',
+            url: `${url}/pacientes/${params.idPaciente}`,
+            header: {
+
+            }
+        }
+        axios(config)
+            .then(res => {
+                paciente = res.data
+                console.log(paciente)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+
+    onMount(()=>{
+        cargarPaciente();
+        cargarNota()
+    })
+
+    
 </script>
 
 <AsideAtencion />
-<div class="contenedor-datos" id="divHeaderBar">
-    <div class="row">
-        <div class="col-md-6">
-            <h5>
-                <span class="badge badge-primary" data-bind="text: titulo">Historia Clinica</span>
-                <span data-bind="text: paciente().nombreParaMostrar">Fiordaliza De Jesus Herrera</span>
-            </h5>
-        </div>
-        <div class="col-md-6" style="text-align: right;">
-                <div class="guardar-documento">
-                    <div class="guardando mr-2 text-success" data-bind="html: content, class: contentClass"><i
-                            class="mdi mdi-check-all"></i> <i>listo y guardado</i></div>
-                </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="dropdown" data-bind="foreach: actionButtons">
-
-                    <button data-toggle="modal" data-target="#modalDatosPersonales" style="box-shadow:none;"
-                        class="btn btn-outline-secondary btn-sm">
-                        <i data-bind="class: icon" class="mdi mdi-comment-eye"></i>
-                        <sapn data-bind="text: text">Datos del Paciente</sapn>
-                    </button>
-
-                    <button data-bind=" class: itemClass,click: clickEvent" style="box-shadow:none;"
-                        class="btn btn-outline-dark btn-sm">
-                        <i data-bind="class: icon" class="mdi mdi-text"></i>
-                        <sapn data-bind="text: text">Agregar Campo</sapn>
-                    </button>
-
-                    <button data-toggle="modal" data-target="#modalInterconsulta" style="box-shadow:none;"
-                        class="btn btn-outline-dark btn-sm">
-                        <i data-bind="class: icon" class="mdi mdi-repeat"></i>
-                        <sapn data-bind="text: text">Registrar Interconsulta</sapn>
-                    </button>
-
-                    <button data-bind=" class: itemClass,click: clickEvent" style="box-shadow:none;"
-                        class="btn btn-outline-dark btn-sm btn-hover-white">
-                        <i data-bind="class: icon" class="mdi mdi-printer"></i>
-                        <sapn data-bind="text: text">Imprimir</sapn>
-                    </button>
-
-                    <button data-toggle="modal" data-target="#modalAntecedentes" style="box-shadow:none;"
-                        class="btn btn-outline-dark btn-sm">
-                        <i data-bind="class: icon" class="mdi mdi-account-clock"></i>
-                        <sapn data-bind="text: text">Antecedentes</sapn>
-                    </button>
-
-                    <button data-bind=" class: itemClass,click: clickEvent" style="box-shadow:none;"
-                        class="btn btn-outline-danger btn-sm">
-                        <i data-bind="class: icon" class="mdi mdi-delete"></i>
-                        <sapn data-bind="text: text">Anular</sapn>
-                    </button>
-            </div>
-        </div>
-    </div>
-</div>
-
+    <OpcionesPaciente
+        {paciente}
+        tipoTab={'Historia Clinica'}
+    />
     <Header />
     <main class="admin-main">
         <div class="container m-b-30">
@@ -76,7 +75,7 @@
                         <div class="card-title">Motivo de consulta</div>
                     </div>
                     <div class="card-body">
-                        <textarea class="form-control" style="width: 100%; display: block; height: 150px;" rows="3" name="Comentario" data-bind="value: atencionMedica.motivoConsulta"></textarea>
+                        <textarea class="form-control" style="width: 100%; display: block; height: 150px;" rows="3" name="Comentario">{notaMedica.motivoConsulta}</textarea>
                     </div>
                 </div>
                 <div data-bind="if: perfil().historiaEnfermedad" class="card m-b-20 autosave">
@@ -84,18 +83,9 @@
                         <div class="card-title">Historia de la enfermedad</div>
                     </div>
                     <div class="card-body">
-                        <textarea class="form-control" data-bind="value: atencionMedica.historiaEnfermedad" style="width: 100%; display: block; height: 150px;" rows="3" name="Comentario"></textarea>
+                        <textarea class="form-control" style="width: 100%; display: block; height: 150px;" rows="3" name="Comentario">{notaMedica.historiaEnfermedad}</textarea>
                     </div>
                 </div>
-                <div class="card m-b-20 autosave" data-bind="if: perfil().examenMental">
-                    <div class="card-header">
-                        <div class="card-title">Examen mental</div>
-                    </div>
-                    <div class="card-body">
-                        <textarea class="form-control" data-bind="value: notaMedica.examenMental" style="width: 100%; display: block; height: 150px;" rows="3" name="Comentario"></textarea>
-                    </div>
-                </div>
-                
                 <div class="card m-b-20 margen-mobile autosave">
                     <div class="card-header">
                         <div class="card-title">Signos vitales</div>
@@ -168,12 +158,12 @@
                                     <label for=""><i class="mdi mdi-weight-pound"></i> Peso</label>
                                     <div class="row">
                                         <div class="col-lg-7">
-                                            <input type="number" class="form-control">
+                                            <input type="number" bind:value={notaMedica.peso} class="form-control">
                                         </div>
                                         <div class="col-lg-5">
-                                            <select class="form-control">
-                                                <option value="°C">Lb</option>
-                                                <option value="°K">Kg</option>
+                                            <select class="form-control" bind:value={notaMedica.unidadPeso}>
+                                                <option value="C">Lb</option>
+                                                <option value="K">Kg</option>
                                             </select>
                                         </div>
                                     </div>
@@ -185,7 +175,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="input-group" style="width: 100% !important; float: right;">
-                                                <input type="number" class="form-control" max="15" maxlength="2" data-bind="value: notaMedica.escalaGlasgow" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <input type="number" class="form-control" max="15" maxlength="2" bind:value={notaMedica.escalaGlasgow} aria-label="Recipient's username" aria-describedby="basic-addon2">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text" id="basic-addon2">/ 15</span>
                                                 </div>
@@ -200,7 +190,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="input-group" style="width: 100% !important; float: right;">
-                                                <input type="number" class="form-control" max="10" maxlength="2" data-bind="value: notaMedica.escalaGlasgow" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <input type="number" class="form-control" max="10" maxlength="2" bind:value={notaMedica.escalaDolor} aria-label="Recipient's username" aria-describedby="basic-addon2">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text" id="basic-addon2">/ 10</span>
                                                 </div>
@@ -214,7 +204,7 @@
                                     <label for=""><i class="mdi mdi-opacity"></i> Saturaci&oacute;n de oxigeno</label>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <input type="number" class="form-control">
+                                            <input type="number" bind:value={notaMedica.saturacionOxigeno} class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +239,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <textarea class="form-control" style="width: 100%; display: block;" data-bind="value: notaMedica.exploracionFisica" rows="5" name="Comentario"></textarea>
+                        <textarea class="form-control" style="width: 100%; display: block;" rows="5" name="Comentario">{notaMedica.examenFisico}</textarea>
                     </div>
                 </div>
                 <div class="card m-b-20">

@@ -1,6 +1,11 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+
     export let tiposAtenciones;
     export let tipoAtencionMedica = 'A';
+    export let motivoConsulta;
+
+    const dispatch = createEventDispatcher();
 
     const onChange = (event) => {
         tipoAtencionMedica = event.currentTarget.value;
@@ -60,7 +65,7 @@
                         <div data-bind="visible: puedeCrear()">
                             <h6>Motivo de Consulta</h6>
                             <textarea class="form-control" required style="width: 100%; display: block; height: 150px;"
-                                id="exampleFormControlTextarea1" rows="3"
+                                id="exampleFormControlTextarea1" rows="3" bind:value={motivoConsulta}
                                  name="MotivoConsulta"></textarea>
                             <br>
                         </div>
@@ -83,7 +88,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button data-bind="visible: puedeCrear()" type="submit" class="btn btn-primary">Crear</button>
+                        <button on:click|preventDefault={() => dispatch('crearAtencion')} type="submit" class="btn btn-primary">Crear</button>
                     </div>
                 </form>
             </div>

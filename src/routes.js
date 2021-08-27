@@ -18,10 +18,10 @@ const routes = {
     "/AtencionMedica/Interconsultas": Interconsultas,
     "/AtencionMedica/Atenciones": Atenciones,
     "/Usuario/Index": IndexUsuario,
-    "/AtencionMedica/Resumen": AtencionResumen,
-    "/AtencionMedica/EditarDatosAtencion": EditarAtencion,
-    "/AtencionMedica/HistoriaClinica": ResumenAtencion,
-    "/AtencionMedica/NotasMedicas": NotasAtencion,
+    "/pacientes/:idPaciente/AtencionMedica/Resumen": AtencionResumen,
+    "/pacientes/:idPaciente/AtencionMedica/EditarDatosAtencion/:id": EditarAtencion,
+    "/pacientes/:idPaciente/AtencionMedica/HistoriaClinica/:idNota": ResumenAtencion,
+    "/pacientes/:idPaciente/AtencionMedica/NotasMedicas": NotasAtencion,
     "*": Error404
 }
 

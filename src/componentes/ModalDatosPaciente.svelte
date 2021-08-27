@@ -13,7 +13,7 @@
                     <div class="text-center">
                         <div>
                             <div class="avatar avatar-xl">
-                                <img class="avatar-img rounded-circle" src="/atmosTemplate/assets/img/person.webp" alt="imagen paciente">
+                                <!-- <img class="avatar-img rounded-circle" src="/atmosTemplate/assets/img/person.webp" alt="imagen paciente"> -->
                             </div>
                         </div>
                         <h3 class="p-t-10 searchBy-name">

@@ -1,5 +1,5 @@
 <script>
-    import { link } from "svelte-spa-router";
+    import { link, push } from "svelte-spa-router";
     import { onMount } from "svelte";
     import {url, calcularEdad} from '../../utils';
 
@@ -15,6 +15,7 @@
     let abreviacionNombre = '';
     let tiposAtenciones = [];
     let tipoAtencionMedica = 'A';
+    let txtMotivoConsulta = '';
 
     const crearNuevaAtencion = () => {
         const atencion = {
@@ -22,13 +23,54 @@
             CamaId: '345f61ab-259d-4259-ad6b-7583c2fe1dbf',
             fechaIngreso: new Date().toISOString(),
             PacienteId: paciente.id,
-
+            TipoId: tipoAtencionMedica,
+            AseguradoraId: paciente.aseguradoraId,
+            MedicoId: '4569d361-7f59-4840-b37a-e1c2ffbc9375',
+            EdadPaciente: `${calcularEdad(paciente.fechaNacimiento)}`,
         }
+        console.log(atencion)
         const config = {
             method: 'post',
             url: `${url}/atenciones`,
+            data: atencion,
         };
+        axios(config)
+            .then(res => {
+                console.log(res.data)
+                if(res.data.id){
+                    crearNotaMedica(res.data.id)
+                }
+            })
+            .catch(err => {
+                console.error(err)
+            })
 
+    }
+
+    const crearNotaMedica = (idAtencion) => {
+        const nota = {
+            AtencionId: idAtencion,
+            fecha: new Date().toISOString(),
+            MotivoConsulta: txtMotivoConsulta,
+            TipoNotaId: 'I',
+            MedicoId: '4569d361-7f59-4840-b37a-e1c2ffbc9375',
+        }
+        const config = {
+            method: 'post',
+            url: `${url}/notasmedicas`,
+            data: nota,
+        }
+        axios(config)
+            .then(res => {
+                if(res.data){
+                    jQuery('.modal').modal('hide')
+                    push(`/pacientes/${params.id}/AtencionMedica/HistoriaClinica/${res.data.id}`);
+                }
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 
     const cargarTiposAtenciones = () => {
@@ -550,4 +592,6 @@
 <ModalNuevaAtencion
     {tiposAtenciones}
     {tipoAtencionMedica}
+    bind:motivoConsulta={txtMotivoConsulta}
+    on:crearAtencion={crearNuevaAtencion}
 />
